@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:id="@+id/directionsForm"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <!--
+                <EditText
+       			android:id="@+id/startTextView" 
+				android:layout_width="fill_parent" 
+           		android:layout_height="wrap_content"  
+           		android:hint="Start"
+           		android:textSize="16dip"/>
+            -->
+
+            <Button
+                android:id="@+id/createRouteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/endTextView"
+                android:text="Go!" />
+
+            <Button
+                android:id="@+id/showMapButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/endTextView"
+                android:layout_toRightOf="@id/createRouteButton"
+                android:text="Show Map"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/showItineraryButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/endTextView"
+                android:layout_toRightOf="@id/showMapButton"
+                android:text="Itinerary"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/clearButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/endTextView"
+                android:layout_toRightOf="@id/showItineraryButton"
+                android:text="Clear"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/followMeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/endTextView"
+                android:text="Me" />
+
+            <EditText
+                android:id="@+id/endTextView"
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:ems="10"
+                android:hint="Where do you want to go?"
+                android:textSize="20dip" >
+
+                <requestFocus />
+            </EditText>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mapLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <com.mapquest.android.maps.MapView
+            android:id="@+id/map"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:apiKey="@string/api_key"
+            android:clickable="true"
+            android:enabled="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/itineraryLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone" >
+
+        <WebView
+            android:id="@+id/itinerary"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </RelativeLayout>
+
+</LinearLayout>
